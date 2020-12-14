@@ -45,7 +45,8 @@ app.use(express.static('public'));
 // ============================
 // ROUTES
 // ============================
-require('./routes/routes')(app);
+require('./routes/html-routes')(app);
+require('./routes/api-routes')(app);
 
 // ============================
 // SERVER
