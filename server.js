@@ -1,6 +1,6 @@
-// ============
+// ============================
 // GENERAL
-// ============
+// ============================
 // app dependencies
 const express = require('express');
 const app = express();
@@ -10,18 +10,18 @@ const logger = require('morgan');
 // set the port variable
 const PORT = process.env.PORT || 3030;
 
-// ============
+// ============================
 // DATABASE
-// ============
+// ============================
 //TODO require the models folder
 // const db = require('./models');
 
 //TODO establish a connection to the database
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useCreateIndex: true
-// });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
 
 // db.Workout.create({ name: 'Workouts' })
 //   .then((dbWorkout) => {
@@ -31,9 +31,9 @@ const PORT = process.env.PORT || 3030;
 //     console.log(message);
 //   });
 
-// ============
+// ============================
 // MIDDLEWARE
-// ============
+// ============================
 // general middleware
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
@@ -42,14 +42,14 @@ app.use(express.json());
 // use static files middleware
 app.use(express.static('public'));
 
-// ============
+// ============================
 // ROUTES
-// ============
+// ============================
 require('./routes/routes')(app);
 
-// ============
+// ============================
 // SERVER
-// ============
+// ============================
 // start the server
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`);
