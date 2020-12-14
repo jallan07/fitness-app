@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3030;
 // DATABASE
 // ============================
 //TODO require the models folder
-// const db = require('./models');
+const db = require('./models');
 
 //TODO establish a connection to the database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
@@ -23,13 +23,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
   useCreateIndex: true
 });
 
-// db.Workout.create({ name: 'Workouts' })
-//   .then((dbWorkout) => {
-//     console.log(dbWorkout);
-//   })
-//   .catch(({ message }) => {
-//     console.log(message);
-//   });
+db.Workout.create({ name: 'Workouts' })
+  .then((dbWorkout) => {
+    console.log(dbWorkout);
+  })
+  .catch(({ message }) => {
+    console.log(message);
+  });
 
 // ============================
 // MIDDLEWARE
