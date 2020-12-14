@@ -23,14 +23,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
   useCreateIndex: true
 });
 
-db.Workout.create({ name: 'Workouts' })
-  .then((dbWorkout) => {
-    console.log(dbWorkout);
-  })
-  .catch(({ message }) => {
-    console.log(message);
-  });
-
 // ============================
 // MIDDLEWARE
 // ============================
