@@ -4,17 +4,36 @@
 // app dependencies
 const express = require('express');
 const app = express();
-const mongojs = require('mongojs');
+const mongoose = require('mongoose');
 const logger = require('morgan');
-
-// establish the database
-const databaseUrl = 'warmup';
-const collections = ['books'];
-const db = mongojs(databaseUrl, collections);
 
 // set the port variable
 const PORT = process.env.PORT || 3030;
 
+// ============
+// DATABASE
+// ============
+//TODO require the models folder
+// const db = require('./models');
+
+//TODO establish a connection to the database
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useCreateIndex: true
+// });
+
+// db.Workout.create({ name: 'Workouts' })
+//   .then((dbWorkout) => {
+//     console.log(dbWorkout);
+//   })
+//   .catch(({ message }) => {
+//     console.log(message);
+//   });
+
+// ============
+// MIDDLEWARE
+// ============
 // general middleware
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
@@ -26,10 +45,7 @@ app.use(express.static('public'));
 // ============
 // ROUTES
 // ============
-// homepage
-app.get('/', (req, res) => {
-  res.render(index);
-});
+require('./routes/routes')(app);
 
 // ============
 // SERVER
