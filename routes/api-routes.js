@@ -5,14 +5,16 @@ module.exports = (app) => {
 
   //get all workouts
   app.get('/api/workouts', (req, res) => {
-    db.Workouts.find({}).then((workouts) => res.json(workouts));
+    db.Workouts.find({}).then(function (workouts) {
+      res.json(workouts);
+    });
   });
 
   // create a workout
-  app.post('/api/workouts', ({ body }, res) => {
-    db.Workouts.create({ body })
+  app.post('/api/workouts', (req, res) => {
+    db.Workouts.create(req.body)
       .then((workout) => {
-        console.log(workout);
+        res.json(workout);
       })
       .catch((err) => {
         if (err) console.log(err);
