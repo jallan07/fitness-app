@@ -13,10 +13,10 @@ const PORT = process.env.PORT || 3030;
 // ============================
 // DATABASE
 // ============================
-//TODO require the models folder
+// require the models folder
 const db = require('./models');
 
-//TODO establish a connection to the database
+// establish a connection to the database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,

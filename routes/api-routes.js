@@ -1,9 +1,11 @@
-const { db } = require('../models/Workout.js');
+let db = require('../models');
 
 module.exports = (app) => {
+  //TODO create the api routes
+
   // create a workout
   app.post('/api/workouts', ({ body }, res) => {
-    db.Workout.create({ body })
+    db.Workouts.create({ body })
       .then((workout) => {
         console.log(workout);
       })
@@ -11,4 +13,6 @@ module.exports = (app) => {
         if (err) console.log(err);
       });
   });
+
+  //
 };
