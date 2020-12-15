@@ -2,9 +2,14 @@ let db = require('../models');
 
 module.exports = (app) => {
   //TODO create the api routes
-
-  //get all workouts
+  //get all workouts for home page
   app.get('/api/workouts', (req, res) => {
+    db.Workouts.find({}).then(function (workouts) {
+      res.json(workouts);
+    });
+  });
+  // get all workouts for workout dashboard
+  app.get('/api/workouts/range', (req, res) => {
     db.Workouts.find({}).then(function (workouts) {
       res.json(workouts);
     });
@@ -20,6 +25,5 @@ module.exports = (app) => {
         if (err) console.log(err);
       });
   });
-
   //
 };
