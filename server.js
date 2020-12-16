@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3030;
 // require the models folder
 const db = require('./models');
 
-// establish a connection to the database
+// establish a connection to the database || use the env variable first to look within heroku for the mongo database
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
