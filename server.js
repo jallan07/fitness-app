@@ -6,9 +6,13 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const logger = require('morgan');
+const compression = require('compression');
 
 // set the port variable
 const PORT = process.env.PORT || 3030;
+
+// compression npm package middleware
+app.use(compression());
 
 // ============================
 // DATABASE
